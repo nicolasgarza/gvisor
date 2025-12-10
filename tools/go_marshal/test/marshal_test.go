@@ -97,7 +97,7 @@ func unsafeMemory(m marshal.Marshallable) []byte {
 
 	// reflect.ValueOf(m)
 	//   .Elem() // Unwrap interface to inner concrete object
-	ptr := unsafe.Pointer(reflect.ValueOf(m).Elem().UnsafeAddr)
+	ptr := unsafe.Pointer(reflect.ValueOf(m).Elem().UnsafeAddr())
 	size := m.SizeBytes()
 
 	mem := unsafe.Slice((*byte)(ptr), size)
